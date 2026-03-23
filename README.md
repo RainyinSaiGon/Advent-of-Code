@@ -6,11 +6,11 @@ My solutions to [Advent of Code](https://adventofcode.com/) puzzles, implemented
 
 | Language | Version | Notes |
 |---|---|---|
-|  Python | 3.x | Scratchpad — solve logic fast |
-|  Go | 1.x | Cloud/backend, concurrency |
-|  Rust | 1.x | Main focus — systems, performance |
-|  Java | 21 | JVM, enterprise ecosystem |
-|  Zig | 0.16.0-dev | Low-level, close to metal |
+| Python | 3.12.3 | Scratchpad — solve logic fast |
+| Go | 1.26.1 | Cloud/backend, concurrency |
+| Rust | 1.94 | Main focus — systems, performance |
+| Java | 25 | JVM, enterprise ecosystem |
+| Zig | 0.16.0-dev | Low-level, close to metal |
 
 ## Structure
 
@@ -108,7 +108,7 @@ cd 2024/day01/zig && zig build run
 | Python | `sudo apt install python3` |
 | Go | [go.dev/dl](https://go.dev/dl) |
 | Rust | `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \| sh` |
-| Java | `sudo apt install openjdk-21-jdk` |
+| Java | `sudo apt install openjdk-25-jdk` |
 | Zig | [ziglang.org/download](https://ziglang.org/download) or `zvm install master` |
 
 ## Solutions
@@ -117,9 +117,9 @@ cd 2024/day01/zig && zig build run
 
 | Day | Problem | Python | Go | Rust | Java | Zig |
 |---|---|---|---|---|---|---|
-| [Day 01](2024/day01/) | [Historian Hysteria](https://adventofcode.com/2024/day/1) | ⭐⭐ | ⭐⭐ | ⭐⭐ | ⭐⭐ | ⭐⭐ |
+| [Day 01](2024/day01/) | [Historian Hysteria](https://adventofcode.com/2024/day/1) | ** | ** | ** | ** | ** |
 
-> ⭐ = part 1 solved, ⭐⭐ = both parts solved
+> * = part 1 solved, ** = both parts solved
 
 ## Notes
 
