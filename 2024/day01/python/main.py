@@ -1,56 +1,49 @@
 from pathlib import Path
+from collections import Counter
 
 
 def read_input(filename: str) -> str:
     return Path(filename).read_text().strip()
 
 
-def part1(data: str):
-    # Data handle
-    left_col, right_col = [], []
+def parse_columns(data: str):
+    left = []
+    right = []
+    left_append = left.append
+    right_append = right.append
     for line in data.splitlines():
         a, b = line.split()
-        left_col.append(int(a))
-        right_col.append(int(b))
-        
-    # Sorting the list 
-    left_col = sorted(left_col)
-    right_col = sorted(right_col)
+        left_append(int(a))
+        right_append(int(b))
+    return left, right
 
-    # Processing
+
+def part1(left, right):
+    left = left.copy()
+    right = right.copy()
+    left.sort()
+    right.sort()
     total = 0
-    for left_value, right_value in zip(left_col, right_col):
-        total += abs(left_value - right_value)
-            
-    
-    #print(left_col)
-    #print(right_col)
-    #print(total)
+    for a, b in zip(left, right):
+        total += abs(a - b)
     return total
 
 
-def part2(data: str):
-    left_col, right_col = {}, {}
-    for line in data.splitlines():
-        a, b =  line.split()
-        left_col[int(a)] =  left_col.get(int(a), 0) + 1
-        right_col[int(b)] =  right_col.get(int(b), 0) + 1
-
-    similarityScore = 0
-    for key in left_col.keys():
-        if key in right_col.keys():
-            similarityScore += right_col.get(key) * key * left_col.get(key)
-        
-    #print(left_col)
-    #print(right_col)
-    #print(similarityScore)
-    return similarityScore
+def part2(left, right):
+    left_count = Counter(left)
+    right_count = Counter(right)
+    right_get = right_count.get
+    total = 0
+    for value, count in left_count.items():
+        total += value * count * right_get(value, 0)
+    return total
 
 
 def main():
     data = read_input("../input.txt")
-    print("Part 1:", part1(data))
-    print("Part 2:", part2(data))
+    left, right = parse_columns(data)
+    print("Part 1:", part1(left, right))
+    print("Part 2:", part2(left, right))
 
 
 if __name__ == "__main__":
